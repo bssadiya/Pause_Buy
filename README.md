@@ -40,7 +40,6 @@ Similarity accuracy is more meaningful for real buying decisions.
 * Flask
 * Image processing
 * Semantic similarity
-* 
 ## Summary
 
 PauseBuy is a practical project focused on reducing unnecessary purchases by helping users pause and reflect before buying.

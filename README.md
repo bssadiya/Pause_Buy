@@ -44,3 +44,7 @@ Similarity accuracy is more meaningful for real buying decisions.
 
 PauseBuy is a practical project focused on reducing unnecessary purchases by helping users pause and reflect before buying.
 
+
+
+https://github.com/user-attachments/assets/a3135242-390c-40af-a0d8-c619b69ad6d1
+

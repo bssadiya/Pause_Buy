@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>PauseBuy</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+
+<div class="container">
+
+    <h1>PauseBuy 🛒</h1>
+    <p class="tagline">
+        Add what you own. Pause before you buy.
+    </p>
+
+    <!-- 🟢 ADD TO MY CLOSET -->
+    <div class="card">
+        <h3>Add to My Closet</h3>
+
+        <form action="/add" method="POST" enctype="multipart/form-data">
+            <input type="file" name="image" accept="image/*" required>
+            <button type="submit">Add to Closet</button>
+        </form>
+    </div>
+
+    <!-- MESSAGE AFTER ADD -->
+    {% if message %}
+    <div class="card result">
+        {{ message }}
+    </div>
+    {% endif %}
+
+    <!-- 🔵 CHECK BEFORE BUYING -->
+    <div class="card">
+        <h3>Can I Buy This?</h3>
+
+        <form action="/check" method="POST" enctype="multipart/form-data">
+            <input
+                type="text"
+                name="item_text"
+                placeholder="Optional: e.g. yellow long kurti"
+            >
+
+            <input
+                type="file"
+                name="item_image"
+                accept="image/*"
+            >
+
+            <button type="submit">
+                Can I buy this?
+            </button>
+        </form>
+    </div>
+
+    <!-- RESULT OF CHECK -->
+    {% if result %}
+    <div class="card result">
+        <p>
+            <strong>{{ result }}</strong><br>
+            <span class="reason">Matched based on category & color similarity</span><br>
+            <span class="checked-item">
+                Item checked: <strong>{{ item }}</strong>
+            </span>
+        </p>
+
+        {% if matches %}
+        <div class="match-grid">
+            {% for m in matches %}
+            <div class="match-item">
+                <img src="{{ m.image }}" alt="matched item">
+                <p class="item-label">
+                    <strong>{{ m.label }}</strong><br>
+                    <span class="badge category">{{ m.label.split()[1:] | join(" ") }}</span>
+                    <span class="badge color">{{ m.label.split()[0] }}</span><br>
+                    <small>Similarity: {{ "%.2f"|format(m.score) }}</small>
+                </p>
+            </div>
+            {% endfor %}
+        </div>
+        {% endif %}
+    </div>
+    {% endif %}
+
+    <!-- 🧺 VIEW MY CLOSET (SEPARATE PAGE) -->
+    <div class="card">
+        <button class="primary-btn" onclick="location.href='/closet'">
+            🧺 View My Closet
+        </button>
+    </div>
+
+</div>
+
+</body>
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>PauseBuy</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+<div class="container">
+
+    <h1>PauseBuy 🛒</h1>
+    <p class="tagline">Add what you own. Pause before you buy.</p>
+
+    <div class="steps">
+        <p>1️⃣ Add clothes you already own</p>
+        <p>2️⃣ Check before buying new items</p>
+        <p>3️⃣ Avoid duplicate purchases</p>
+    </div>
+
+    <!-- ONLY BUTTON, NO EXTRA TEXT -->
+    <div class="card">
+        <button class="primary-btn" onclick="location.href='/app'">
+            🧺 Open My Closet
+        </button>
+    </div>
+
+</div>
+</body>
+</html>

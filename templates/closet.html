@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>My Closet</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+<div class="container">
+    <h1>My Closet 🧺</h1>
+
+    {% if closet %}
+    <div class="card">
+        <div class="closet-grid">
+            {% for item in closet %}
+            <div class="closet-item">
+                <img src="{{ item.image }}" alt="item">
+                <p><strong>{{ item.color }} {{ item.category }}</strong></p>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+    {% else %}
+    <div class="card">
+        <p>Your closet is empty.</p>
+    </div>
+    {% endif %}
+
+    <div class="card">
+        <button class="primary-btn" onclick="location.href='/'">
+            ← Back
+        </button>
+    </div>
+</div>
+
+</body>
+</html>

@@ -1,34 +1,52 @@
-# PauseBuy
 
-## Problem
+# PauseBuy — Smart Closet Tool
 
-We often forget what clothes we already own and end up buying very similar items again.
-There is no simple way to check *“Do I already have something like this?”* before buying.
+**Pause before you buy. Avoid duplicate clothing purchases.**
+
+PauseBuy checks whether you already own similar clothes **before you buy**, using **category-based matching and image similarity**.
 
 
-## What PauseBuy Does
+## ✨ Features
+**Digital Closet** — Upload clothes you own
+**Can I Buy This?** — Upload an image and check
+**Flipkart Alerts** — Warns on Buy Now / Add to Cart
+**Add from Orders**
+**Duplicate Prevention**
 
-PauseBuy helps users decide whether they should buy a clothing item by comparing it with their existing clothes.
-Users upload images of clothes they own to create a personal closet.
-Before buying something new, they can enter a description or upload an image, and the system checks for similar items in their closet.
-## Key Features
-* Upload clothing images to build a personal closet
-* Automatically detects:
-  * Clothing category
-  * Length (mini / knee-length / long)
-  * Color
-* Supports text-based and image based checks
-* Detects similarity, not just exact matches
-* Rejects non-clothing images
+##  How It Works
 
-## Categories Supported
-crop top, t-shirt, shirt, top, hoodie, sweater, jacket, kurti,
-shorts, skirt, pants, jeans, trousers, palazzo,
-dress, saree, lehenga, jumpsuit
+1. Detects if the image is clothing
+2. Matches **only same clothing categories** (Top / Bottom / Dress)
+3. Uses **image similarity** for final validation
+4. Shows matching closet images if found
 
-## Evaluation
+## 🛠 Technologies Used
 
-Tested on a custom clothing image dataset.
+**Backend**
+
+* Python, Flask, Flask-CORS
+
+**AI / ML**
+
+* OpenAI CLIP (ViT-B/32)
+* Cosine Similarity
+* Perceptual Hashing (pHash)
+
+**Image Processing**
+
+* OpenCV, Pillow, NumPy
+
+**Frontend**
+
+* HTML, CSS, Jinja2
+
+**Browser Extension**
+
+* JavaScript, Chrome Extension APIs
+
+**Storage**
+
+* JSON (closet data), Local image storage
 
 * **Exact accuracy:** 73.68%
 * **Similarity accuracy:** 94.74%
@@ -43,7 +61,10 @@ Similarity accuracy is more meaningful for real buying decisions.
 
 ## Output
 
-https://github.com/user-attachments/assets/a3135242-390c-40af-a0d8-c619b69ad6d1
+
+https://github.com/user-attachments/assets/c9572cb0-eb86-4e21-a8e3-9542cb3db2ec
+
+
 
 ## Summary
 
